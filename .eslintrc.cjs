@@ -2,5 +2,9 @@
 module.exports = {
   root: true,
   extends: [ '@cenk1cenk2/eslint-config/svelte-typescript' ],
-  overrides: [ ...require('@cenk1cenk2/eslint-config/utils').generateImportGroupsWithOverride({ tsconfigDir: __dirname, tsconfig: 'tsconfig.json' }) ]
+  overrides: [ ...require('@cenk1cenk2/eslint-config/utils').generateImportGroupsWithOverride({ tsconfigDir: __dirname, tsconfig: 'tsconfig.json' }) ],
+  rules: {
+    'no-throw-literal': 'off',
+    '@typescript-eslint/no-throw-literal': 'off'
+  }
 }
