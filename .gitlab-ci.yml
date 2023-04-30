@@ -7,7 +7,6 @@ variables:
 stages:
   - install
   - build
-  - test
   - publish
 
 include:
@@ -18,6 +17,8 @@ include:
     file: /templates/v2/docker-build-internal.gitlab-ci.yml
 
 build:
+  needs:
+    - install
   artifacts:
     paths:
       - '**/dist/'
@@ -33,6 +34,9 @@ lint:
 docker-html:
   stage: publish
   extends: .docker-build-internal
+  needs:
+    - build
+    - lint
   variables:
     DOCKERFILE_CONTEXT: .
     DOCKER_IMAGE_INTERNAL_NAME: html
