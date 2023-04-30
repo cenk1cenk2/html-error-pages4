@@ -42,6 +42,7 @@ docker-html:
     DOCKERFILE_CONTEXT: .
     DOCKER_IMAGE_INTERNAL_NAME: html
     DOCKER_IMAGE_TAGS: latest
+    GITLAB_CI_ARCH: arm64
   dependencies:
     - build
   only:
