@@ -17,8 +17,18 @@ include:
   - project: devops/pipes
     file: /templates/v2/docker-build-internal.gitlab-ci.yml
 
+build:
+  artifacts:
+    paths:
+      - '**/dist/'
+      - '.svelte-kit/'
+    exclude:
+      - 'node_modules*'
+      - 'node_modules/**/*'
+
 lint:
-  stage: test
+  needs:
+    - build
 
 docker-html:
   stage: publish
