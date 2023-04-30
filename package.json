@@ -9,14 +9,14 @@
     "url": "https://cenk.kilic.dev"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "start": "node dist/index.js",
-    "dev:start": "vite dev --host 0.0.0.0",
+    "dev:start": "vite dev --host 0.0.0.0 --port 4200",
     "build": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "preview": "vite preview",
+    "preview": "vite preview --host 0.0.0.0 --port 4200",
     "format": "prettier --loglevel warn --write src/ && pnpm run lint --fix",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx src/ "
   },
