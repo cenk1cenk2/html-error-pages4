@@ -9,7 +9,7 @@ export const load: PageLoad = async ({ url }) => {
   const code = Number.parseInt(url.searchParams.get('code') ?? '0', 10)
 
   if (!(code && httpStatus[code] && code >= 400 && code < 600)) {
-    return { code: 'WTF', message: 'Nothing to see here' }
+    return
   }
 
   throw error(code, {
